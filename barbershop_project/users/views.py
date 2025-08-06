@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from .forms import UserRegisterForm, UserLoginForm
 
 class RegisterView(CreateView):
+    """Обработка регистрации новых пользователей"""
     form_class = UserRegisterForm
     template_name = 'users/register.html'
     success_url = reverse_lazy('landing')
@@ -17,6 +18,7 @@ class RegisterView(CreateView):
         return response
 
 class UserLoginView(BaseLoginView):
+    """Обработка аутентификации пользователей"""
     form_class = UserLoginForm
     template_name = 'users/login.html'
     redirect_authenticated_user = True
